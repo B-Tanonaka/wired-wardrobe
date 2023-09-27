@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "client-dev": "npx webpack --watch",
-    "build": "npx webpack",
+    "build": "npx webpack --env VERCEL_ENV=$VERCEL_ENV",
     "start": "node server/index.js",
     "reset-main": "git checkout main && git fetch origin && git reset --hard origin/main",
     "test": "jest",
