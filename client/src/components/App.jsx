@@ -24,7 +24,7 @@ function App() {
       rnrRef.current.scrollIntoView();
     }
   };
-console.log('test')
+
   return (
     <div>
       <ToastContainer />
