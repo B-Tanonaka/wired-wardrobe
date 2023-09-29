@@ -17,10 +17,14 @@ function Carousel() {
 
   function nextSlide(relatedList) {
     if (relatedList) {
-      dispatch(newRelatedCarouselIndex(relatedIndex === related.length - 1 ? 0 : relatedIndex + 1));
+      dispatch(newRelatedCarouselIndex(
+        relatedIndex === related.length - 1 ? 0 : relatedIndex + 1
+      ));
       return;
     }
-    dispatch(newOutfitCarouselIndex(outfitIndex === outfitList.length - 1 ? 0 : outfitIndex + 1));
+    dispatch(newOutfitCarouselIndex(
+      outfitIndex === outfitList.length - 1 ? 0 : outfitIndex + 1
+    ));
   }
 
   function prevSlide(relatedList) {
@@ -39,20 +43,44 @@ function Carousel() {
   return (
     <div className={`${itemStyles['items-all']}`}>
       <div className={`${itemStyles['items-list-container']} ${itemStyles['items-list-related']}`}>
-        {relatedIndex >= 1 && <FaChevronLeft className={itemStyles['left-arrow']} onClick={() => prevSlide('related')} />}
+        {relatedIndex >= 1
+          && (
+            <FaChevronLeft
+              className={itemStyles['left-arrow']}
+              onClick={() => prevSlide('related')}
+            />
+          )}
 
         <ItemsList relatedIndex={relatedIndex} />
 
-        {(related.length >= 5 && relatedIndex !== related.length - 5)
-        && <FaChevronRight className={itemStyles['right-arrow']} onClick={() => nextSlide('related')} />}
+        {(related.length >= 5
+          && relatedIndex !== related.length - 5)
+          && (
+            <FaChevronRight
+              className={itemStyles['right-arrow']}
+              onClick={() => nextSlide('related')}
+            />
+          )}
       </div>
       <div className={`${itemStyles['items-list-container']} ${itemStyles['items-list-outfit']}`}>
-        {outfitIndex >= 1 && <FaChevronLeft className={itemStyles['left-arrow']} onClick={() => prevSlide()} />}
+        {outfitIndex >= 1
+          && (
+            <FaChevronLeft
+              className={itemStyles['left-arrow']}
+              onClick={() => prevSlide()}
+            />
+          )}
 
         <OutfitList outfitIndex={outfitIndex} />
 
-        {(outfitList.length > 4 && outfitIndex !== outfitList.length - 4)
-        && <FaChevronRight className={itemStyles['right-arrow']} onClick={() => nextSlide()} />}
+        {(outfitList.length > 4
+          && outfitIndex !== outfitList.length - 4)
+          && (
+            <FaChevronRight
+              className={itemStyles['right-arrow']}
+              onClick={() => nextSlide()}
+            />
+          )}
       </div>
     </div>
   );
